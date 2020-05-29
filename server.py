@@ -14,8 +14,8 @@ import pandas as pd
 from flask import Flask,request,render_template,redirect,flash,make_response
 from werkzeug.utils import secure_filename
 import os
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
+from keras.models import load_model
+from keras.preprocessing import image
 
 
 app=Flask(__name__)
