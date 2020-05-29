@@ -55,7 +55,7 @@ def upload():
                 flash('No image selected for uploading')
                 return redirect(request.url)
         else:
-            model = load_model('.\model.h5')
+            model = load_model('model.h5')
 
             #target = os.path.join(app.config['UPLOAD_FOLDER'], 'img')
             destination = '\\'.join([app.config['UPLOAD_FOLDER'], 'img.jpg'])
