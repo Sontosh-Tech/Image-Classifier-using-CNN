@@ -39,6 +39,8 @@ def upload():
                     pic1=secure_filename(pic.filename)
                     #target = os.path.join(app.config['UPLOAD_FOLDER'], 'img')
                     destination = '\\'.join([app.config['UPLOAD_FOLDER'], 'img.jpg'])
+                    if os.path.exists(destination):
+                        os.remove(destination)
                     pic.save(destination)
                     r=make_response(render_template('index.html',file=pic1,flag=1))
                     r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
