@@ -17,6 +17,7 @@ from keras.models import load_model
 from keras.preprocessing import image
 
 
+
 app=Flask(__name__)
 app.config['UPLOAD_FOLDER']='.\\static\\'
 app.config['SECRET_KEY']='secret@123'
