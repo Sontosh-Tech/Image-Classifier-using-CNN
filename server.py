@@ -19,7 +19,7 @@ from keras.preprocessing import image
 
 
 app=Flask(__name__)
-app.config['UPLOAD_FOLDER']='.\\static\\'
+app.config['UPLOAD_FOLDER']='.\\static\\img\\'
 app.config['SECRET_KEY']='secret@123'
 app.config["TEMPLATE_AUTO_RELOAD"]=True
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -38,8 +38,8 @@ def upload():
             if pic.filename!='':
                 if pic and allowed_extn(pic.filename):
                     pic1=secure_filename(pic.filename)
-                    target=os.path.join(app.config['UPLOAD_FOLDER'],'img')
-                    destination = '\\'.join([target, 'img.jpg'])
+                    #target = os.path.join(app.config['UPLOAD_FOLDER'], 'img')
+                    destination = '\\'.join([app.config['UPLOAD_FOLDER'], 'img.jpg'])
                     pic.save(destination)
                     r=make_response(render_template('index.html',file=pic1,flag=1))
                     r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
@@ -57,8 +57,8 @@ def upload():
         else:
             model = load_model('.\model.h5')
 
-            target = os.path.join(app.config['UPLOAD_FOLDER'], 'img')
-            destination = '\\'.join([target, 'img.jpg'])
+            #target = os.path.join(app.config['UPLOAD_FOLDER'], 'img')
+            destination = '\\'.join([app.config['UPLOAD_FOLDER'], 'img.jpg'])
             test_image = image.load_img(destination,target_size=(64,64))
             test_image = image.img_to_array(test_image)
             test_image = np.expand_dims(test_image, axis=0)
