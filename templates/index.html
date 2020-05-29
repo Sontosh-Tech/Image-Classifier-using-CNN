@@ -29,8 +29,9 @@
     </br></br>
       <button class="btn btn-lg btn-primary btn-block" type="submit" name="action" value="upload">Upload</button> 
     </br>
+    {% set image=image %}
     {% if file %}
-    <img src="{{url_for('static',filename='img/img.jpg')}}" width="90" height="90">
+    <img src="{{url_for('static',filename='img/'+image)}}" width="90" height="90">
     {% endif %}
   </br>
       </br>

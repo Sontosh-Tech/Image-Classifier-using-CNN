@@ -38,11 +38,12 @@ def upload():
                 if pic and allowed_extn(pic.filename):
                     pic1=secure_filename(pic.filename)
                     #target = os.path.join(app.config['UPLOAD_FOLDER'], 'img')
-                    destination = '\\'.join([app.config['UPLOAD_FOLDER'], 'img.jpg'])
-                    if os.path.exists(destination):
-                        os.remove(destination)
+                    destination = '\\'.join([app.config['UPLOAD_FOLDER'], str(pic.filename)])
+                    if len(os.listdir(app.config['UPLOAD_FOLDER'])) !=0:
+                        for file in os.listdir(app.config['UPLOAD_FOLDER']):
+                            os.remove('\\'.join([app.config['UPLOAD_FOLDER'],str(file)]))
                     pic.save(destination)
-                    r=make_response(render_template('index.html',file=pic1,flag=1))
+                    r=make_response(render_template('index.html',file=pic1,flag=1,image=pic.filename))
                     r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
                     r.headers["Pragma"] = "no-cache"
                     r.headers["Expires"] = "0"
