@@ -4,7 +4,6 @@ Created on Thu May 28 22:36:14 2020
 
 @author: Sontosh
 """
-
 import numpy as np
 #import tensorflow
 #from keras.models import Sequential
