@@ -5,4 +5,3 @@ Jinja2>2.10.1
 numpy==1.18.3
 tensorflow==1.15.0
 werkzeug==0.16.1
-setuptools==41.0.0
