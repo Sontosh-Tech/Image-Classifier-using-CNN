@@ -18,7 +18,7 @@ from keras.preprocessing import image
 
 
 app=Flask(__name__)
-app.config['UPLOAD_FOLDER']='.\\static\\img'
+app.config['UPLOAD_FOLDER']='.\/static\/img'
 app.config['SECRET_KEY']='secret@123'
 app.config["TEMPLATE_AUTO_RELOAD"]=True
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
