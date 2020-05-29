@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Deep Learning</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static',filename='css/signin.css')}}" rel="stylesheet">
+
+  </head>
+
+  <body class="text-center" style="background-color: gray">
+    <form class="form-signin" action="/" method='post' style="background-color: powderblue;width: 1000px" enctype="multipart/form-data">
+      <h1 class="h3 mb-3 font-weight-normal" style="color: blue">Image Classification</h1>
+      <p style="color: gray">(Upload an image and check if this app can tell you which image is this. Try with Building, Forect, Glacier, Mountain, Sea, Street images)</p>
+      <label for="inputEmail" class="sr-only">Upload an Image</label>
+      <input type="file" name="pic">
+    </br></br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" name="action" value="upload">Upload</button> 
+    </br>
+    {% if file %}
+    <img src="{{url_for('static',filename='img/img.jpg')}}" width="90" height="90">
+    {% endif %}
+  </br>
+      </br>
+      {% if flag==1 %}
+      <button href='/img_classifier' class="btn btn-lg btn-primary btn-block" type="submit" name="action" value="classify">Classify</button> 
+      {% endif %}
+    </br>
+      <div>
+        <p>
+          <h3>{{prediction}}</h3>
+        </p>
+      </div>
+      <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          {% for message in messages %}
+            <p style="color: red">{{ message }}</p>
+          {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </p>
+
+
+      <p class="mt-5 mb-3 text-muted">Built by&copy; Sontosh</p>
+    </form>
+    
+    
+  </body>
+</html>
