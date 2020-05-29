@@ -6,7 +6,6 @@ Created on Thu May 28 22:36:14 2020
 """
 
 import numpy as np
-import pandas as pd
 #import tensorflow
 #from keras.models import Sequential
 #from keras.layers import Convolution2D,MaxPooling2D,Flatten,Dense
