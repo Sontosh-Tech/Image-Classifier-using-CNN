@@ -80,7 +80,7 @@ def upload():
                 result = 'Street'
             else:
                 result = 'Something unknown'
-            r = make_response(render_template('index.html', prediction='This is an image of {}'.format(result),file='img.jpg'))
+            r = make_response(render_template('index.html', prediction='This is an image of {}'.format(result),file=destination))
             r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
             r.headers["Pragma"] = "no-cache"
             r.headers["Expires"] = "0"

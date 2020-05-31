@@ -31,8 +31,7 @@
     </br>
     
     {% if file %}
-    {% set fname='img/'+ image %}
-    <img src="{{url_for('static',filename=fname)}}" width="90" height="90">
+    <img src="{{file}}" width="90" height="90">
     {% endif %}
   </br>
       </br>
