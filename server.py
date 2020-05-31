@@ -43,7 +43,7 @@ def upload():
                         for file in os.listdir(app.config['UPLOAD_FOLDER']):
                             os.remove('/'.join([app.config['UPLOAD_FOLDER'],str(file)]))
                     pic.save(destination)
-                    r=make_response(render_template('index.html',file=pic1,flag=1,image=pic.filename))
+                    r=make_response(render_template('index.html',file=destination,flag=1,image=pic.filename))
                     r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
                     r.headers["Pragma"] = "no-cache"
                     r.headers["Expires"] = "0"
